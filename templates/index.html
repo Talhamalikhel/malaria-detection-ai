@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaria Detection AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🔬 Malaria Detection AI</h1>
+            <p class="subtitle">AI-Powered Cell Image Analysis</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-box" id="uploadBox">
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                    <div class="upload-content">
+                        <div class="upload-icon">📤</div>
+                        <p class="upload-text">Click to upload or drag & drop</p>
+                        <p class="upload-hint">PNG, JPG, JPEG, BMP (Max 16MB)</p>
+                    </div>
+                </div>
+
+                <div class="preview-section" id="previewSection" style="display: none;">
+                    <img id="imagePreview" src="" alt="Preview">
+                    <button class="btn-secondary" id="changeImageBtn">Change Image</button>
+                </div>
+            </div>
+
+            <button class="btn-primary" id="analyzeBtn" style="display: none;">
+                <span id="btnText">Analyze Image</span>
+                <span id="btnLoader" class="loader" style="display: none;"></span>
+            </button>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <h2>Analysis Results</h2>
+
+                <div class="result-card">
+                    <div class="result-header">
+                        <span class="result-label">Prediction:</span>
+                        <span class="result-value" id="predictionResult">-</span>
+                    </div>
+
+                    <div class="confidence-bar">
+                        <div class="confidence-label">
+                            <span>Confidence</span>
+                            <span id="confidenceValue">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+
+                    <div class="result-details">
+                        <p id="resultMessage"></p>
+                    </div>
+                </div>
+
+                <div class="disclaimer">
+                    <strong>⚠️ Important:</strong> This is an AI-assisted screening tool.
+                    All results must be confirmed by expert microscopy and clinical diagnosis.
+                </div>
+
+                <button class="btn-secondary" id="analyzeAnotherBtn">Analyze Another Image</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Developed with PyTorch & Flask</p>
+            <p class="model-info">Model Accuracy: 94% | Precision: 94.3% | Recall: 93.5%</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
